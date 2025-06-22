@@ -4,6 +4,8 @@ import google_ai_interface
 from PIL import Image
 import base64
 from io import BytesIO
+import tts
+import cv2
 
 def loop():
     print("start")
@@ -15,7 +17,9 @@ def loop():
         return
 
     print("resizing image... ", end="")
-    resized = Image.fromarray(frame).resize((320, 240), Image.Resampling.LANCZOS)
+    rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    print(cam_script.width, cam_script.height)
+    resized = Image.fromarray(rgb_frame).resize((320, int(320 * float(cam_script.height) / float(cam_script.width))), Image.Resampling.LANCZOS)
     print("resized!")
 
     print("making b64... ", end="")
@@ -27,6 +31,8 @@ def loop():
     print("asking google ai abt image...")
     response = google_ai_interface.generate_response_from_image(img_str, "jpeg")
     print(response)
+
+    tts.play_tts(response)
 
 
 def main():

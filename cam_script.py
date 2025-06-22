@@ -2,9 +2,13 @@ import cv2
 
 cap = cv2.VideoCapture(0)  # 0 is the default camera
 
+
 if not cap.isOpened():
     print("Cannot open camera")
     exit()
+
+width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
+height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
 
 def get_camera_image(show_window=False):
     ret, frame = cap.read()

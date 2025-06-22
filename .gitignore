@@ -43,3 +43,6 @@ docs/_build/
 # Test Coverage Reports
 coverage.xml
 .coverage
+
+# other
+temp/
