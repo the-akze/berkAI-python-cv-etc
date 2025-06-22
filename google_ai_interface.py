@@ -1,6 +1,7 @@
 from google import genai
 from google.genai import types
 import base64
+from os import getenv
 
 systemprompt = ""
 
@@ -10,7 +11,7 @@ with open("./systemprompt.txt", "r") as systemprompt_file:
 def generate_response_from_image(b64img, img_ext="png"):
   client = genai.Client(
       vertexai=True,
-      project="infra-voyage-463709-s6",
+      project=getenv("GOOGLE_AI_PROJECT_NAME"),
       location="us-central1",
   )
 
