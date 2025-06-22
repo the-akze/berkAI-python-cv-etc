@@ -1,0 +1,45 @@
+# Virtual Environments
+venv/
+.env/
+env/
+
+# Python Bytecode and Compiled Files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Build and Distribution Files
+build/
+dist/
+*.egg
+*.egg-info/
+*.whl
+
+# Log Files and Databases
+*.log
+*.sqlite3
+db.sqlite3
+
+# IDE and Editor Specific Files
+.idea/
+.vscode/
+.project
+.pydevproject
+.spyderproject
+.spyproject
+
+# Operating System Specific Files
+.DS_Store
+Thumbs.db
+
+# Sensitive Information (example)
+.env
+secrets.py
+
+# Generated Documentation
+docs/_build/
+
+# Test Coverage Reports
+coverage.xml
+.coverage
